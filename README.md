@@ -53,24 +53,24 @@ StreamFlow is built using the **Hexagonal Architecture** to ensure scalability, 
    python main.py
 
 2. Verify data ingestion:
-   Access Elasticsearch at http://localhost:9200.
-   Query the tweets index to see ingested data.
+   - Access Elasticsearch at http://localhost:9200.
+   - Query the tweets index to see ingested data.
 
 ## Directory Structure
-streamflow/
-├── domain/
-│   ├── models/
-│   ├── services/
-├── application/
-│   ├── input/
-│   ├── output/
-├── infrastructure/
-│   ├── kafka/
-│   ├── elasticsearch/
-├── tests/
-├── main.py
-├── requirements.txt
-└── README.md
+- streamflow/
+- ├── domain/
+- │   ├── models/
+- │   ├── services/
+- ├── application/
+- │   ├── input/
+- │   ├── output/
+- ├── infrastructure/
+- │   ├── kafka/
+- │   ├── elasticsearch/
+- ├── tests/
+- ├── main.py
+- ├── requirements.txt
+- └── README.md
 
 - **domain/**: Core business logic.
 - **application/**: Handles input and output layers.
