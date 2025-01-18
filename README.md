@@ -37,16 +37,19 @@ StreamFlow is built using the **Hexagonal Architecture** to ensure scalability, 
    cd streamflow
 
 2. Install Python dependencies:
+   ```bash
    pip install -r requirements.txt
 
 3. Start Kafka and Elasticsearch services:
+   ```bash
    docker-compose -f infrastructure/kafka/docker-compose.yml up -d
    docker-compose -f infrastructure/elasticsearch/docker-compose.yml up -d
 
-4. Configure your Twitter API credentials in the **application/input/kafka_consumer.py** file.
+5. Configure your Twitter API credentials in the **application/input/kafka_consumer.py** file.
 
 ## Usage
 1. Run the main application:
+   ```bash
    python main.py
 
 2. Verify data ingestion:
@@ -69,18 +72,16 @@ streamflow/
 ├── requirements.txt
 └── README.md
 
-**domain/**: Core business logic.
-**application/**: Handles input and output layers.
-**infrastructure/**: Contains Kafka and Elasticsearch configurations.
-**tests/**: Unit and integration tests.
+- **domain/**: Core business logic.
+- **application/**: Handles input and output layers.
+- **infrastructure/**: Contains Kafka and Elasticsearch configurations.
+- **tests/**: Unit and integration tests.
 
 ## Future Enhancements
-   <ul>
-      <li>Add support for sentiment analysis.</li>
-      <li>Implement alerting for specific data trends.</li>
-      <li>Scale using Kubernetes for large-scale deployments.</li>
-      <li>Create real-time visualizations using Kibana.</li>
-   </ul>
+- Add support for sentiment analysis.
+- Implement alerting for specific data trends.
+- Scale using Kubernetes for large-scale deployments.
+- Create real-time visualizations using Kibana.
 
 ## Contributing
    Contributions are welcome! Please submit a pull request or open an issue to suggest improvements.
