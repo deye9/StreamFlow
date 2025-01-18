@@ -47,7 +47,7 @@ StreamFlow is built using the **Hexagonal Architecture** to ensure scalability, 
 
 5. Configure your Twitter API credentials in the
    ```bash
-   application/input/kafka_consumer.py``` file.
+   application/input/kafka_consumer.py file.
 
 ## Usage
 1. Run the main application:
