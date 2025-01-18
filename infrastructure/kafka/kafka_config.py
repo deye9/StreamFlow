@@ -1,11 +1,11 @@
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
 class KafkaConfig:
     def __init__(self):
         load_dotenv()
-        self.topic_name = os.environ.get('TOPIC_NAME')
-        self.broker_url = os.environ.get('KAFKA_BROKER_URL')
+        self.topic_name = os.environ.get('topic_name')
+        self.broker_url = os.environ.get('kafka_broker_url')
 
     def get_config(self):
         return {

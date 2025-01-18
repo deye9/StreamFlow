@@ -4,8 +4,8 @@ import os
 class ESConfig:
     def __init__(self):
         load_dotenv()
-        self.host = os.environ.get('ES_HOST')
-        self.index = os.environ.get('ES_INDEX')
+        self.host = os.environ.get('es_host')
+        self.index = os.environ.get('es_index')
 
     def get_config(self):
         return {
