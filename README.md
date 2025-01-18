@@ -21,6 +21,18 @@ StreamFlow is built using the **Hexagonal Architecture** to ensure scalability, 
 
 ---
 
+## Tech Stack
+
+- **Elasticsearch**: For storing and querying processed data.
+- **Kafka**: For real-time message ingestion.
+- **Spark Streaming**: For processing streaming data.
+- **Docker**: To containerize services.
+- **Python**: For coding.
+- **Twitter API**: For data ingestion.
+- **Monorepo**: To manage a unified codebase.
+
+---
+
 ## Getting Started
 
 ### Prerequisites
