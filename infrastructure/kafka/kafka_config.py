@@ -1,17 +1,16 @@
 from dotenv import load_dotenv
 import os
 
-# Read the TOPIC_NAME and KAFKA_BROKER_URL environment variables from the .env file
-# and return them as a dictionary
+class KafkaConfig:
+    def __init__(self):
+        load_dotenv()
+        self.topic_name = os.environ.get('TOPIC_NAME')
+        self.broker_url = os.environ.get('KAFKA_BROKER_URL')
 
-def get_kafka_config():
+    def get_config(self):
+        return {
+            'topic': self.topic_name,
+            'broker_url': self.broker_url
+        }
 
-    # Load environment variables from .env file
-    load_dotenv()
-
-    # Read values from environment variables
-    return {
-        'topic': os.getenv('TOPIC_NAME'),
-        'broker_url': os.getenv('KAFKA_BROKER_URL')
-    }
-
+kafka_config = KafkaConfig()

@@ -1,16 +1,16 @@
 from dotenv import load_dotenv
 import os
 
-# Read the ES_HOST and ES_INDEX environment variables from the .env file
-# and return them as a dictionary
+class ESConfig:
+    def __init__(self):
+        load_dotenv()
+        self.host = os.environ.get('ES_HOST')
+        self.index = os.environ.get('ES_INDEX')
 
-def get_es_config():
-    
-    # Load environment variables from .env file
-    load_dotenv()
+    def get_config(self):
+        return {
+            'host': self.host,
+            'index': self.index
+        }
 
-    # Read values from environment variables
-    return {
-        'host': os.getenv('ES_HOST'),
-        'index': os.getenv('ES_INDEX')
-    }
+es_config = ESConfig()
