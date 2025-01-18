@@ -3,3 +3,5 @@ pyspark
 tweepy
 pymongo
 python-dotenv
+faker
+colorlog

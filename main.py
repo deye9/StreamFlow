@@ -1,29 +1,25 @@
-from application.input.kafka_consumer import KafkaTweetConsumer
-from application.output.elasticsearch_client import ElasticsearchClient
-from infrastructure.kafka.kafka_config import get_kafka_config
+import time
+from infrastructure.logger_config import logger
+from domain.services.tweet_service import TwitterStream
+from infrastructure.kafka.kafka_producer import KafkaProducerClient
+
+logger = logger.getChild(__name__)
 
 def main():
     """
     Main function to consume tweets from Kafka and index them into Elasticsearch.
     """
-    config = get_kafka_config()
-    kafka_consumer = KafkaTweetConsumer(topic=config.get('topic'), bootstrap_servers=config.get('broker_url'))
-    es_client = ElasticsearchClient()
+    total_tweets = 0
     batch_size = 100
     tweets_batch = []
+    start_time = time.time()
 
-    try:
-        with kafka_consumer as consumer:
-            for tweet in consumer.consume():
-                tweets_batch.append(tweet.__dict__)
-                if len(tweets_batch) >= batch_size:
-                    es_client.bulk_index(index="tweets", tweets=tweets_batch)
-                    tweets_batch.clear()
-            # Index any remaining tweets in the batch
-            if tweets_batch:
-                es_client.bulk_index(index="tweets", tweets=tweets_batch)
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    twitter_stream = TwitterStream()
+    tweets = twitter_stream.fetch_tweets(query="QUERY", count=100)
+
+    producer = KafkaProducerClient()
+    producer.send_message(tweets)
+    producer.close()
 
 if __name__ == "__main__":
     main()

@@ -77,6 +77,9 @@ StreamFlow is built using the **Hexagonal Architecture** to ensure scalability, 
 1. Run the main application:
 
    ```bash
+   docker compose up --build -d
+   docker logs kafka-streamflow
+   docker build -t streamflow . && docker run -p 4000:80 streamflow
    python main.py
    ```
 
