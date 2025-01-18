@@ -45,7 +45,9 @@ StreamFlow is built using the **Hexagonal Architecture** to ensure scalability, 
    docker-compose -f infrastructure/kafka/docker-compose.yml up -d
    docker-compose -f infrastructure/elasticsearch/docker-compose.yml up -d
 
-5. Configure your Twitter API credentials in the **application/input/kafka_consumer.py** file.
+5. Configure your Twitter API credentials in the
+   ```bash
+   **application/input/kafka_consumer.py** file.
 
 ## Usage
 1. Run the main application:
@@ -57,20 +59,20 @@ StreamFlow is built using the **Hexagonal Architecture** to ensure scalability, 
    - Query the tweets index to see ingested data.
 
 ## Directory Structure
-- streamflow/
-- ├── domain/
-- │   ├── models/
-- │   ├── services/
-- ├── application/
-- │   ├── input/
-- │   ├── output/
-- ├── infrastructure/
-- │   ├── kafka/
-- │   ├── elasticsearch/
-- ├── tests/
-- ├── main.py
-- ├── requirements.txt
-- └── README.md
+real-time-streaming/
+├── domain/
+│   ├── models/
+│   ├── services/
+├── application/
+│   ├── input/
+│   ├── output/
+├── infrastructure/
+│   ├── kafka/
+│   ├── elasticsearch/
+├── tests/
+├── main.py
+├── requirements.txt
+└── README.md
 
 - **domain/**: Core business logic.
 - **application/**: Handles input and output layers.
